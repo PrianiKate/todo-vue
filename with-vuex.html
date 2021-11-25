@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>With Vuex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body>
+    <div id="app" class="root">
+      <add-todo></add-todo>
+      <todo-list></todo-list>
+    </div>
+    <script src="with-vuex/main.js"></script>
+    <script src="with-vuex/store.js"></script>
+    <script src="with-vuex/components/addTodo.js"></script>
+    <script src="with-vuex/components/todoItem.js"></script>
+    <script src="with-vuex/components/todoList.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Without Vuex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body>
+    <div id="app" class="root">
+      <add-todo @add-todo-item="addTodoItem"></add-todo>
+      <todo-list v-bind:todo-list="todoList" :remove-todo-item="removeTodoItem"></todo-list>
+    </div>
+    <script src="without-vuex/components/addTodo.js"></script>
+    <script src="without-vuex/components/todoList.js"></script>
+    <script src="without-vuex/components/todoItem.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          todoList: [
+            { id: 0, text: "Read Vue documentation" },
+            { id: 1, text: "Make Todo example" },
+            { id: 2, text: "Read other Vue tutorials" },
+          ],
+        },
+        methods: {
+          removeTodoItem: function (itemId) {
+            this.todoList = this.todoList.filter(({ id }) => id !== itemId);
+          },
+          addTodoItem: function (newItemText) {
+            const newId = this.todoList.length ? this.todoList[this.todoList.length - 1]?.id + 1 : 0;
+            this.todoList.push({ id: newId, text: newItemText });
+          },
+        }
+      });
+    </script>
+  </body>
+</html>
